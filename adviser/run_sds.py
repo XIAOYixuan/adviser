@@ -45,17 +45,17 @@ def load_nlg(backchannel: bool, domain = None):
         nlg = HandcraftedNLG(domain=domain)
     return nlg
 
-def load_lecturers_domain(backchannel: bool = False):
+def load_domain(backchannel: bool = False):
     from utils.domain.jsonlookupdomain import JSONLookupDomain
     from services.nlu.nlu import HandcraftedNLU
     from services.nlg.nlg import HandcraftedNLG
     from services.policy import HandcraftedPolicy
     domain = JSONLookupDomain('ImsLecturers', display_name="Lecturers")
-    lect_nlu = HandcraftedNLU(domain=domain)
-    lect_bst = HandcraftedBST(domain=domain)
-    lect_policy = HandcraftedPolicy(domain=domain)
-    lect_nlg = load_nlg(backchannel=backchannel, domain=domain)
-    return domain, [lect_nlu, lect_bst, lect_policy, lect_nlg]
+    nlu = HandcraftedNLU(domain=domain)
+    bst = HandcraftedBST(domain=domain)
+    policy = HandcraftedPolicy(domain=domain)
+    nlg = load_nlg(backchannel=backchannel, domain=domain)
+    return domain, [nlu, bst, policy, nlg]
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='ADVISER 2.0 Dialog System')
@@ -85,9 +85,9 @@ if __name__ == "__main__":
                           logfile_basename="full_log")
 
     # load domain specific services
-    l_domain, l_services = load_lecturers_domain(backchannel=False)
-    domains.append(l_domain)
-    services.extend(l_services)
+    i_domain, i_services = load_domain()
+    domains.append(i_domain)
+    services.extend(i_services)
     services.extend(load_console())
 
     # setup dialog system

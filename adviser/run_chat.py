@@ -148,7 +148,7 @@ if __name__ == "__main__":
     if args.bc and not args.asr:
         parser.error("--bc: Backchannel requires ASR (--asr) option")
 
-    num_dialogs = 100
+    num_dialogs = 1
     domains = []
     services = []
 

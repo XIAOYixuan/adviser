@@ -1,7 +1,7 @@
 
 # ---------------NEW RULES - IMS LECTURER MESSAGES-------------------------
 
-template welcomemsg(): "Welcome to the IMS lecturer chat bot. How may I help you?"
+template welcomemsg(): "Hi, I’m here to help you with lecture picking. How many credits would you like to take in the coming semester?"
 template welcomemsg(help): "Sorry, I cannot understand you. Please tell me again what you are looking for."
 template welcomemsg(more) : "Can I help you with anything else?"
 template bad() : "Sorry I am a bit confused; please tell me again what you are looking for."
